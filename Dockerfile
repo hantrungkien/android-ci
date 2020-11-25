@@ -2,20 +2,18 @@ FROM openjdk:8-jdk
 
 MAINTAINER KienHT<kienhantrung@gmai.com>
 
-ENV DEBIAN_FRONTEND noninteractive
-
 ENV ANDROID_SDK_ROOT "/sdk"
 ENV ANDROID_HOME "${ANDROID_SDK_ROOT}"
-ENV ANDROID_NDK_HOME "${ANDROID_SDK_ROOT}/ndk-bundle"
 ENV PATH "$PATH:${ANDROID_SDK_ROOT}/tools"
 ENV GRADLE_USER_HOME=$PWD/.gradle
 ENV VERSION_TOOLS "6609375"
 
-RUN apt-get -qq update \
+RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update \
  	&& apt-get install -qqy --no-install-recommends \
-      curl \
-      lib32stdc++6 \
-      unzip \
+ 		apt-utils \
+      	curl \
+      	lib32stdc++6 \
+      	unzip \
  	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
 	&& apt-get autoremove -y \
 	&& apt-get clean
