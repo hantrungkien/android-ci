@@ -35,3 +35,10 @@ RUN mkdir -p /root/.android \
 
 RUN while read -r package; do PACKAGES="${PACKAGES}${package} "; done < /sdk/packages.txt \
 	&& ${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin/sdkmanager --sdk_root=${ANDROID_SDK_ROOT} ${PACKAGES}
+
+RUN curl -s https://dl.google.com/android/repository/${VERSION_ANDROID_NDK}-linux-x86_64.zip > /ndk.zip \
+	&& unzip /ndk.zip -d $ANDROID_NDK_HOME \
+    && rm -v /ndk.zip
+
+RUN yes | ${ANDROID_SDK_ROOT}/tools/bin/sdkmanager --channel=3 --channel=1 'cmake;'$ANDROID_CMAKE_REV_3_10 \
+    && yes | ${ANDROID_SDK_ROOT}/tools/bin/sdkmanager 'ndk-bundle' 

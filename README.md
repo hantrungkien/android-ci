@@ -9,7 +9,7 @@
 *.gitlab-ci.yml*
 
 ```yml
-image: hantrungkien/android-ci:latest
+image: hantrungkien/android-ci:ndk
 
 before_script:
     - export GRADLE_USER_HOME=`pwd`/.gradle
