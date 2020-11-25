@@ -4,9 +4,12 @@ MAINTAINER KienHT<kienhantrung@gmai.com>
 
 ENV ANDROID_SDK_ROOT "/sdk"
 ENV ANDROID_HOME "${ANDROID_SDK_ROOT}"
+ENV ANDROID_NDK_HOME "${ANDROID_SDK_ROOT}/ndk-bundle"
 ENV PATH "$PATH:${ANDROID_SDK_ROOT}/tools"
 ENV GRADLE_USER_HOME=$PWD/.gradle
 ENV VERSION_TOOLS "6609375"
+ENV ANDROID_CMAKE_REV_3_10="3.10.2.4988404"
+ENV VERSION_ANDROID_NDK="android-ndk-r11"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update \
  	&& apt-get install -qqy --no-install-recommends \
