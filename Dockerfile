@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk
+FROM openjdk:8-jdk-slim
 
 MAINTAINER KienHT<kienhantrung@gmai.com>
 
