@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk
+FROM ubuntu:latest
 
 MAINTAINER KienHT<kienhantrung@gmai.com>
 
