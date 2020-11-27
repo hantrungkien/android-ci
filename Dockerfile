@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM openjdk:8-jdk-slim
 
 MAINTAINER KienHT<kienhantrung@gmai.com>
 
